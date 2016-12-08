@@ -972,7 +972,15 @@ In the example above, since we are invoking alias inside the function plus/2, th
 		  end
 		end
 
-# Follow doc
+** Module Attributes**
+
+Please follow doc
+
+**Structs**
+
+* Structs are extensions built on top of maps that provide compile-time checks and default values.
+
+* 
 
 
 
