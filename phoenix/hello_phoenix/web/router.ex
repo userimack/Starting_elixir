@@ -17,7 +17,18 @@ defmodule HelloPhoenix.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/hello", HelloController, :index
+    get "/hello/:messenger", HelloController, :show
+    resources "/users", UserController do
+      resources "posts", PostController
+    end
   end
+ 
+ scope "admin" do
+   pipe_through :browser
+  
+   resources "/reviews", HelloPhoenix.Admin.ReviewController
+ end
 
   # Other scopes may use custom stacks.
   # scope "/api", HelloPhoenix do
