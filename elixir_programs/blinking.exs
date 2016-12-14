@@ -5,7 +5,7 @@ defmodule Blink do
       # {_,{_, m, _}} = :os.timestamp |> :calendar.now_to_datetime
       
       #if rem(i, 2) == 0 do
-       System.cmd("notify-send",["TODO","Blink"])
+       System.cmd("notify-send",["TODO","😃 😄 "])
        #end
       Process.sleep(60000)
        #:timer.sleep(60000)
