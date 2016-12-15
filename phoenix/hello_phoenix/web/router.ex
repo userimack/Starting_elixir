@@ -17,6 +17,7 @@ defmodule HelloPhoenix.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/test", PageController, :test
     get "/hello", HelloController, :index
     get "/hello/:messenger", HelloController, :show
     resources "/reviews", ReviewController
@@ -25,24 +26,26 @@ defmodule HelloPhoenix.Router do
     end
   end
  
- scope "admin", HelloPhoenix.Admin, as: :admin  do
-   pipe_through :browser
-  
-   resources "/images", ImageController
-   resources "/reviews", ReviewController
-   resources "/users", UserController
- end
+  scope "admin", HelloPhoenix.Admin, as: :admin  do
+    pipe_through :browser
+ 
+    resources "/images", ImageController
+    resources "/reviews", ReviewController
+    resources "/users", UserController
+  end
 
   # Other scopes may use custom stacks.
   # scope "/api", HelloPhoenix do
   #   pipe_through :api
   # end
-  scope "/api", HelloPhoenix.Api, as: : api do
+  scope "/api", HelloPhoenix.Api, as: :api do
     pipe_through :api
 
     scope "/v1", V1, as: :v1 do
-    resources "/images", ImageController
-    resources "/reviews", ReviewController
-    resources "/users", UserController
-   end
+      resources "/images", ImageController
+      resources "/reviews", ReviewController
+      resources "/users", UserController
+    end
+  end
 end
+
