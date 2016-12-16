@@ -17,13 +17,11 @@ defmodule HelloPhoenix.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    get "/test", PageController, :test
-    get "/hello", HelloController, :index
-    get "/hello/:messenger", HelloController, :show
-    resources "/reviews", ReviewController
-    resources "/users", UserController do
-      resources "posts", PostController
-    end
+    # get "/test", PageController, :test
+    # get "/hello", HelloController, :index
+    # get "/hello/:messenger", HelloController, :show
+    # resources "/reviews", ReviewController
+    resources "/users", UserController 
   end
  
   scope "admin", HelloPhoenix.Admin, as: :admin  do
